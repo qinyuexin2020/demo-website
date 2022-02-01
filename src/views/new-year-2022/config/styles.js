@@ -56,7 +56,6 @@ export default [
     }
     /* 预览区域有50%的空间 */
     .preview{
-      display:flex;
       flex: 1;
       height: 100%;
       background-color: #2f1f47;
@@ -64,262 +63,196 @@ export default [
 
     .preview-html{
       display: flex;
-      margin-top:35%;
-      margin-right:5vw;
-      margin-left:5vw;
-
+      align-items: center;
+      justify-content: center;
+      height: 100%;
     }
 
-    /* 好啦~ 你应该看到一个编辑器的基本感觉了，我们可以开始画咯 */
+    /* 好啦~ 你应该看到一个编辑器的基本感觉了，我们要开始画灯笼咯 */
   `,
   // 2
   `
-  /* 给灯笼的大肚子整样式 */
-  .lantern-container {
-    position: relative;
-  }
+  .head {
+        width: 100px;
+        height: 90px;
+        border-radius: 78% 78% 59% 56%;
+        background-color: rgb(248, 229, 118);
+        border: 1px solid #333;
+        position: relative;
+      }
+      .text {
+        font-size: 20px;
+        color: #000;
+        position: absolute;
+        text-align: center;
+        left: 0;
+        right: 0;
+        top: 6px;
+        z-index: 11;
+        animation: head 0.8s ease-in-out infinite;
+      }
+   .yuan {
+        width: 30px;
+        height: 26px;
+        border-radius: 50%;
+        background-color: rgb(248, 229, 118);
+        position: absolute;
+      }
+      .y-left {
+        transform: rotateZ(-45deg);
+        margin-top: 6px;
+        left: 0;
+      }
+      .y-right {
+        transform: rotateZ(45deg);
+        margin-top: 6px;
+        right: 0;
+      }
+      .inside {
+        width: 16px;
+        height: 10px;
+        background-color: rgb(250, 163, 163);
+        border: 1px solid #333;
+        border-radius: 50% 50% 10% 10%;
+        margin-left: 6px;
+      }
+      .ears {
+        width: 30px;
+        height: 26px;
+        border-radius: 50%;
+        background-color: rgb(248, 229, 118);
+        border: 1px solid #333;
+        position: absolute;
+        z-index: -1;
+      }
+      .e-right {
+        transform: rotateZ(45deg);
+        right: -6px;
+        top: 0px;
+      }
+      .e-left {
+        transform: rotateZ(-45deg);
+        left: -6px;
+        top: 0px;
+      }
 
-  .lantern-light {
-    position: relative;
-    width: 120px;
-    height: 90px;
-    background-color: #ff0844;
-    border-radius: 50%;
-    box-shadow: -5px 5px 100px 4px #fa6c00;
-    animation: wobble 2.5s infinite ease-in-out;
-    transform-style: preserve-3d;
-  }
-  /* 让他动起来吧 */
-  @keyframes wobble {
-    0% {
-      transform: rotate(-6deg);
-    }
-
-    50% {
-      transform: rotate(6deg);
-    }
-
-    100% {
-      transform: rotate(-6deg);
-    }
-  }
   `,
   // 3
   `
-  /* 顶部的灯笼线 */
-  .lantern-top-line {
-    width: 4px;
-    height: 50px;
-    background-color: #d1bb73;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: -20px;
-    border-radius: 2px 2px 0 0;
-  }
+
+
   `,
   // 4
   `
-  /* 灯笼顶部、底部盖子样式 */
-  .lantern-hat-top,
-  .lantern-hat-bottom {
-    content: "";
-    position: absolute;
-    width: 60px;
-    height: 12px;
-    background-color: #ffa500;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  /* 顶部位置 */
-  .lantern-hat-top {
-    top: -8px;
-    border-radius: 6px 6px 0 0;
-  }
-  /* 底部位置 */
-  .lantern-hat-bottom {
-    bottom: -8px;
-    border-radius: 0 0 6px 6px;
-  }
+  .eyes {
+        width: 14px;
+        height: 14px;
+        background-color: #000;
+        border-radius: 50%;
+        position: absolute;
+        top: 40px;
+        z-index: 20;
+        animation: head 0.8s ease-in-out infinite;
+      }
+      .eye-left {
+        left: 24px;
+      }
+      .eye-right {
+        transform: rotateY(180deg);
+        right: 24px;
+      }
+      .small {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #fff;
+        margin-left: 3px;
+        margin-top: 3px;
+      }
+
+
   `,
   // 5
   `
-  /* 灯笼中间的线条 */
-  .lantern-line-out,
-  .lantern-line-innner {
-    height: 90px;
-    border-radius: 50%;
-    border: 2px solid #ffa500;
-    background-color: rgba(216, 0, 15, 0.1);
-  }
-  /* 线条外层 */
-  .lantern-line-out {
-    width: 100px;
-    margin: 12px 8px 8px 10px;
-  }
-  /* 线条内层 */
-  .lantern-line-innner {
-    margin: -2px 8px 8px 26px;
-    width: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  .nose {
+        width: 8px;
+        height: 8px;
+        border-radius: 100% 50% 50%;
+        background-color: rgb(250, 163, 163);
+        border: 1px solid #333;
+        position: relative;
+        top: 46px;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        transform: rotateZ(45deg);
+        z-index: 11;
+      }
+      .line {
+        position: absolute;
+        width: 2px;
+        height: 8px;
+        background-color: #000;
+        transform: rotateZ(-45deg);
+        margin-left: 9px;
+        margin-top: 7px;
+      }
+      .noseLeft,
+      .noseRight {
+        width: 17px;
+        height: 34px;
+        background-color: rgb(248, 229, 118);
+        position: absolute;
+        top: 31px;
+        right: 34px;
+        border-radius: 50%;
+        border: 2px solid rgb(248, 229, 118);
+        border-bottom-color: #000;
+        z-index: 9;
+      }
+      .noseLeft {
+        left: 32px;
+      }
+
   `,
   // 6
   `
-  /* 灯笼底部线条 */
-  .lantern-rope-top {
-    width: 6px;
-    height: 18px;
-    background-color: #ffa500;
-    border-radius: 0 0 5px 5px;
-    position: relative;
-    margin: -5px 0 0 60px;
-    /* 让灯穗也有一个动画效果 */
-    animation: wobble 2.5s infinite ease-in-out;
-  }
+  .tooth {
+        width: 4px;
+        height: 10px;
+        background: #fff;
+        border-radius: 100%;
+        position: absolute;
+        top: 61px;
+        left: 40px;
+        border: 1px solid #333;
+        z-index: 2;
+      }
+      .t-right {
+        left: 52px;
+      }
 
-  .lantern-rope-middle,
-  .lantern-rope-bottom {
-    position: absolute;
-    width: 10px;
-    left: -2px;
-  }
-
-  .lantern-rope-middle {
-    border-radius: 50%;
-    top: 14px;
-    height: 10px;
-    background-color: #dc8f03;
-    z-index: 2;
-  }
-
-  .lantern-rope-bottom {
-    background-color: #ffa500;
-    border-bottom-left-radius: 5px;
-    height: 35px;
-    top: 18px;
-    z-index: 1;
-  }
   `,
   // 7
   `
-  /* 福样式 */
-  .lantern-fu {
-    font-size: 30px;
-    font-weight: bold;
-    color: #ffa500;
-  }
-  `,
-  // 8
-  `
-        .f-left span {
-            width: 18px;
-            height: 8px;
-            border-radius: 0 50% 50% 0;
-            background-color: #000;
-            position: absolute;
-            bottom: 28px;
-            left: -1px;
-            transform: rotateZ(-23deg);
-        }
-        .f-left span:nth-child(2) {
-            width: 14px;
-            bottom: 18px;
-            left: 2px;
-        }
-        .f-right {
-            transform: rotateY(180deg) translateY(80px);
-        }
-        .hands .yuan {
-            width: 10px;
-            height: 10px;
-            background-color: rgb(248, 229, 118);
-            border-radius: 50%;
-            position: absolute;
-            left: -6px;
-        }
-        .tail span {
-            width: 10px;
-            height: 10px;
-            background-color: rgb(248, 229, 118);
-            border-radius: 50%;
-            position: absolute;
-            left: 0px;
-            top: 16px;
-            z-index: 99;
-        }
-        .tail .black {
-            width: 8px;
-            height: 6px;
-            background-color: #000;
-            left: -1px;
-            top: 20px;
-        }
+  .f-left span {
+        width: 18px;
+        height: 8px;
+        border-radius: 0 50% 50% 0;
+        background-color: #000;
+        position: absolute;
+        bottom: 28px;
+        left: -1px;
+        transform: rotateZ(-23deg);
+      }
+      .f-left span:nth-child(2) {
+        width: 14px;
+        bottom: 18px;
+        left: 2px;
+      }
+      .f-right {
+        transform: rotateY(180deg) translateY(80px);
+      }
 
-        .tail .black:nth-child(2) {
-            width: 12px;
-            margin-top: 4px;
-        }
-        .tail .black:nth-child(3) {
-            left: 18px !important;
-            top: 1px;
-            transform: rotateZ(90deg);
-        }
-   `,
-  `
-        /* 接下来我们让小老虎动起来*/
-
-        /* 尾巴摇摆动画*/
-        @keyframes tail {
-            0% {
-                transform-origin: 20px;
-                transform: rotateZ(0deg);
-            }
-
-            60% {
-                transform-origin: 20px;
-                transform: rotateZ(10deg);
-            }
-
-            100% {
-                transform-origin: 20px;
-                transform: rotateZ(0deg);
-            }
-        }
-        /* 手臂摇摆动画*/
-        @keyframes arm {
-            0% {
-                transform-origin: 0 100%;
-                transform: rotateZ(220deg);
-            }
-
-            60% {
-                transform-origin: 0 100%;
-                transform: rotateZ(350deg);
-            }
-
-            100% {
-                transform-origin: 0 100%;
-                transform: rotateZ(220deg);
-            }
-        }
-        /* 放大摇摆动画*/
-        @keyframes head {
-            0% {
-                transform: scale(1);
-            }
-
-            60% {
-                transform: scale(1.2);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-      /* 让我们再加上一只母老虎*/
   `
 ]
