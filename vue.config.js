@@ -1,3 +1,5 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === "production" ? "/demo-website/" : "/"
-};
+  // 选项...
+  publicPath: '/demo-website/dist',
+  lintOnSave: false
+}
