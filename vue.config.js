@@ -1,5 +1,5 @@
 module.exports = {
   // 选项...
-  publicPath: '/newyear/',
+  publicPath: '/demo-website/dist',
   lintOnSave: false
 }
