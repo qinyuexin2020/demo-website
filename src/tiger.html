@@ -1,96 +1,168 @@
-export default [
-  // 开头寒暄
-  `
-  <!--
-    👩：︒ᴴᴬᴾᴾᵞ ɴᴇᴡ ʏᴇᴀя
-    平安喜乐，万事胜意
-    𝟐𝟎𝟐𝟐 新年快乐！🧨
-  -->
-  `,
-  // 说明主旨
-  `
-  <!--
-    以前都是用“手”写代码，今天想尝试一下
-    “代码写代码”,自动画一个喜庆的灯笼
-  -->
-  `,
-  // 创建编辑器
-  `
-  <!--
-    第①步，先创建一个编辑器
-  -->
-  `,
-  // 创建编辑器html结构
-  `
-  <div class="container">
-    <div class="edit">
-      <div class="html-edit">
-        <!-- 这是html代码编辑区域 -->
-        <pre v-html="htmlEditPre">
-          <!-- htmlStep0 -->
-        </pre>
-      </div>
-      <div class="css-edit">
-        <!-- 这是css代码编辑区域 -->
-        <pre v-html="cssEditPre"></pre>
-      </div>
-    </div>
-    <div class="preview">
-      <div class="preview-html"></div>
-      <div v-html="cssEditPre"></div>
-    </div>
-  </div>
-  `,
-  // 开始画样式
-  `
-  <!--
-    第②步，给编辑器来点样式，我要开始画了喔~~
-  -->
-  `,
-  // 画灯笼的大肚子
-  `
-          <!-- 第③步，先画灯笼的大肚子结构 -->
-          <div class="lantern-container">
-            <!-- htmlStep1 -->
-            <!-- 大红灯笼区域 -->
-            <div class="lantern-light">
-            <!-- htmlStep2 -->
-            </div>
-          </div>
-  `,
-  // 提着灯笼的线
-  `
-            <!-- 第④步，灯笼顶部是有根线的 -->
-            <div class="lantern-top-line"></div>
-  `,
-  `
-              <!-- 第⑤步，给灯笼加两个盖子 -->
-              <div class="lantern-hat-top"></div>
-              <div class="lantern-hat-bottom"></div>
-              <!-- htmlStep3 -->
-  `,
-  `
-              <!-- 第⑥步，感觉灯笼快要成了，再给他加上四根线吧 -->
-              <div class="lantern-line-out">
-                <div class="lantern-line-innner">
-                  <!-- htmlStep5 -->
-                </div>
-              </div>
-              <!-- htmlStep4 -->
-  `,
-  `
-              <!-- 第⑦步，灯笼是不是还有底部的小尾巴呀 -->
-              <div class="lantern-rope-top">
-                <div class="lantern-rope-middle"></div>
-                <div class="lantern-rope-bottom"></div>
-              </div>
-  `,
-  `
-                <!-- 第⑧步，最后当然少不了送给大家的福啦 -->
-                <div class="lantern-fu">福</div>
-   `,
-  `
-    <div class="tager1" style="margin-top: 20%;margin-left: 10%;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+
+        .f-left span {
+            width: 18px;
+            height: 8px;
+            border-radius: 0 50% 50% 0;
+            background-color: #000;
+            position: absolute;
+            bottom: 28px;
+            left: -1px;
+            transform: rotateZ(-23deg);
+        }
+        .f-left span:nth-child(2) {
+            width: 14px;
+            bottom: 18px;
+            left: 2px;
+        }
+        .f-right {
+            transform: rotateY(180deg) translateY(80px);
+        }
+
+
+
+
+
+
+
+        .hands .yuan {
+            width: 10px;
+            height: 10px;
+            background-color: rgb(248, 229, 118);
+            border-radius: 50%;
+            position: absolute;
+            left: -6px;
+        }
+
+
+        .tail span {
+            width: 10px;
+            height: 10px;
+            background-color: rgb(248, 229, 118);
+            border-radius: 50%;
+            position: absolute;
+            left: 0px;
+            top: 16px;
+            z-index: 99;
+        }
+        .tail .black {
+            width: 8px;
+            height: 6px;
+            background-color: #000;
+            left: -1px;
+            top: 20px;
+        }
+
+        .tail .black:nth-child(2) {
+            width: 12px;
+            margin-top: 4px;
+        }
+        .tail .black:nth-child(3) {
+            left: 18px !important;
+            top: 1px;
+            transform: rotateZ(90deg);
+        }
+
+
+
+
+
+        /* 尾巴摇摆动画*/
+        @keyframes tail {
+            0% {
+                transform-origin: 20px;
+                transform: rotateZ(0deg);
+            }
+
+            60% {
+                transform-origin: 20px;
+                transform: rotateZ(10deg);
+            }
+
+            100% {
+                transform-origin: 20px;
+                transform: rotateZ(0deg);
+            }
+        }
+         /*手臂摇摆动画*/
+        @keyframes arm {
+            0% {
+                transform-origin: 0 100%;
+                transform: rotateZ(220deg);
+            }
+
+            60% {
+                transform-origin: 0 100%;
+                transform: rotateZ(350deg);
+            }
+
+            100% {
+                transform-origin: 0 100%;
+                transform: rotateZ(220deg);
+            }
+        }
+        /* 放大摇摆动画*/
+        @keyframes head {
+            0% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        .tager2 {
+            z-index: 99;
+            transform: rotateY(180deg);
+            margin-left: 60px;
+        }
+        .tager2 .head,
+        .tager2 .ears,
+        .tager2 .yuan,
+        .tager2 .yuan1,
+        .tager2 .noseLeft,
+        .tager2 .noseRight,
+        .tager2 .belly,
+        .tager2 .tail,
+        .tager2 .hands,
+        .tager2 .foot,
+        .tager2 .tail span,
+        .tager2 .hands .yuan {
+            background-color: pink;
+        }
+        .tager2 .hands .yuan1,
+        .tager2 .tail .black,
+        .tager2 .tail .black1 {
+            background-color: #000;
+        }
+        .tager2 .noseLeft,
+        .tager2 .noseRight {
+            border: 1px solid pink;
+            border-bottom: 2px solid #333;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+
+<div class="tager1">
     <div class="head" style="width: 100px;
             height: 90px;
             border-radius: 78% 78% 59% 56%;
@@ -107,11 +179,13 @@ export default [
             z-index: 11;
             animation: head 0.8s ease-in-out infinite;">王</div>
         <div class="yuan y-left" style="
+
                 width: 30px;
                 height: 26px;
                 border-radius: 50%;
                 background-color: rgb(248, 229, 118);
                 position: absolute;
+
                 transform: rotateZ(-45deg);
                 margin-top: 6px;
                 left: 0;
@@ -124,11 +198,13 @@ export default [
             margin-left: 6px;"></div>
         </div>
         <div class="yuan y-right" style="
+
                 width: 30px;
                 height: 26px;
                 border-radius: 50%;
                 background-color: rgb(248, 229, 118);
                 position: absolute;
+
                 transform: rotateZ(45deg);
                 margin-top: 6px;
                 right: 0;
@@ -315,6 +391,7 @@ export default [
             transform: rotateZ(230deg);
             animation: arm 1s ease-in-out infinite;">
         <div class="yuan yuan1" style="
+
             border-radius: 50%;
             position: absolute;
             width: 8px;
@@ -324,6 +401,7 @@ export default [
             left: 10px;
             z-index: 1;"></div>
         <div class="yuan" style="
+
             width: 30px;
             height: 26px;
             border-radius: 50%;
@@ -343,6 +421,9 @@ export default [
             transform: rotateZ(230deg);
             animation: arm 1s ease-in-out infinite;">
         <div class="yuan yuan1" style="
+
+
+
             border-radius: 50%;
             position: absolute;
             width: 8px;
@@ -374,9 +455,13 @@ export default [
             align-items: center;
             position: relative;
             transform: rotateX(180deg);">
-            <span class="black1" style="
+            <span class="black1" style="width: 10px;
+            height: 10px;
+            background-color: rgb(248, 229, 118);
             border-radius: 50%;
             position: absolute;
+            left: 0px;
+            top: 16px;
             z-index: 99;
             background-color: #000;
             width: 8px;
@@ -403,6 +488,7 @@ export default [
             background-color: rgb(248, 229, 118);
             border-radius: 50%;
             position: absolute;
+            z-index: 9;
             left: 0px;
             top: 16px;
             z-index: 99;"></span>
@@ -416,7 +502,83 @@ export default [
             margin-top: 10px;"></div>
         </div>
     </div>
+
+
 </div>
 
-   `
-]
+
+
+
+<div class="tager2">
+    <div class="head">
+        <div class="text">王</div>
+        <div class="yuan y-left">
+            <div class="inside"></div>
+        </div>
+        <div class="yuan y-right">
+            <div class="inside"></div>
+        </div>
+        <!-- 耳朵 -->
+        <div class="ears e-left"></div>
+        <div class="ears e-right"></div>
+
+        <!-- 眼睛 -->
+        <div class="eyes eye-left">
+            <div class="small"></div>
+        </div>
+        <div class="eyes eye-right">
+            <div class="small"></div>
+        </div>
+        <!-- 鼻子 -->
+        <div class="nose">
+            <div class="line"></div>
+        </div>
+        <div class="noseLeft"></div>
+        <div class="noseRight"></div>
+        <!-- 牙齿 -->
+        <div class="tooth"></div>
+        <div class="tooth t-right"></div>
+        <!-- 腮帮子 -->
+        <div class="f-left">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="f-left f-right">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="belly"></div>
+    <!-- 脚 -->
+    <div class="foot"></div>
+    <div class="foot foot1"></div>
+    <!-- 手 -->
+    <div class="hands">
+        <div class="yuan yuan1"></div>
+        <div class="yuan"></div>
+    </div>
+    <div class="hands">
+        <div class="yuan yuan1"></div>
+        <div class="yuan"></div>
+    </div>
+    <!-- 尾巴 -->
+    <div class="total">
+        <div class="tail">
+            <span class="black1"></span>
+            <div class="tail-insaide"></div>
+        </div>
+        <div class="tail tail1">
+            <span></span>
+            <span class="black"></span>
+            <span class="black"></span>
+            <div class="tail-insaide"></div>
+        </div>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>
