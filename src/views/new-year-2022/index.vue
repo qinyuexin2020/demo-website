@@ -292,12 +292,15 @@ export default {
 
         let previewStylesSource = this.previewStylesSource
         let start = 0
+        let char = styleStepConfig.substring(start, start + 5)
         let timter = setInterval(() => {
-          let char = styleStepConfig.substring(start, start + 1)
-
+          // let char = styleStepConfig.substring(start, start + 1)
+          console.log('char:',char)
           previewStylesSource += char
-
-          if (start >= styleStepConfig.length) {
+          console.log("previewStylesSource:",previewStylesSource)
+          start = start + 5
+          char = styleStepConfig.substring(start, start + 6)
+          if (start - 5 >= styleStepConfig.length) {
             console.log('css结束')
             clearInterval(timter)
             resolve(start)
@@ -340,14 +343,17 @@ export default {
 
         let start = 0
         let chars = ''
+        let char = htmlStepConfig.substring(start, start + 5)
         let timter = setInterval(() => {
-          let char = htmlStepConfig.substring(start, start + 1)
-
+          // let char = htmlStepConfig.substring(start, start + 1)
+          console.log('char:',char)
           chars += char
-
+          console.log('chars:',chars)
+          start = start + 5
+          char = htmlStepConfig.substring(start-1, start + 5)
           previewHtmls = frontHtml + chars + endHtml
-
-          if (start >= htmlStepConfig.length) {
+          console.log('previewHtmls:',previewHtmls)
+          if (start - 5 >= htmlStepConfig.length) {
             console.log('html结束')
             clearInterval(timter)
             resolve(start)
@@ -373,14 +379,18 @@ export default {
 
         let start = 0
         let chars = ''
+        let char = htmlStepConfig.substring(start, start + 5)
         let timter = setInterval(() => {
-          let char = htmlStepConfig.substring(start, start + 1)
-          console.log("char:",char)
+          // let char = htmlStepConfig.substring(start, start + 5)
+          // console.log("char:",char)
           chars += char
-          console.log("chars:",chars)
+          // console.log("chars:",chars)
+          start = start + 5
+          char = htmlStepConfig.substring(start - 1, start + 5)
           htmlEditPreSource = frontHtml + chars + endHtml
-          console.log("htmlEditPreSource:",htmlEditPreSource)
-          if (start >= htmlStepConfig.length) {
+          // console.log("htmlEditPreSource:",htmlEditPreSource)
+
+          if (start - 5 >= htmlStepConfig.length) {
             console.log('html结束')
             clearInterval(timter)
             resolve(start)
@@ -391,7 +401,6 @@ export default {
 
             if (insertStep !== -1) {
               htmlEditRef && htmlEditRef.scrollTo({
-                // top: (htmlEditPreRef.offsetHeight - htmlEditRef.offsetHeight),
                 top: 100000,
                 left: 1000,
               })
@@ -417,15 +426,15 @@ export default {
 
         let previewStylesSource = this.previewStylesSource
         let start = 0
-        let char = styleStepConfig.substring(start, start + 10)
+        let char = styleStepConfig.substring(start, start + 20)
         let timter = setInterval(() => {
           // let char = styleStepConfig.substring(start, start + 1)
           console.log('char:',char)
           previewStylesSource += char
           console.log("previewStylesSource:",previewStylesSource)
-          start = start + 10
-          char = styleStepConfig.substring(start, start + 11)
-          if (start - 10 >= styleStepConfig.length) {
+          start = start + 20
+          char = styleStepConfig.substring(start, start + 21)
+          if (start - 20 >= styleStepConfig.length) {
             console.log('css结束')
             clearInterval(timter)
             resolve(start)
@@ -468,17 +477,17 @@ export default {
 
         let start = 0
         let chars = ''
-        let char = htmlStepConfig.substring(start, start + 10)
+        let char = htmlStepConfig.substring(start, start + 20)
         let timter = setInterval(() => {
           // let char = htmlStepConfig.substring(start, start + 1)
           console.log('char:',char)
           chars += char
           console.log('chars:',chars)
-          start = start + 10
-          char = htmlStepConfig.substring(start-1, start + 10)
+          start = start + 20
+          char = htmlStepConfig.substring(start-1, start + 20)
           previewHtmls = frontHtml + chars + endHtml
           console.log('previewHtmls:',previewHtmls)
-          if (start - 10 >= htmlStepConfig.length) {
+          if (start - 20 >= htmlStepConfig.length) {
             console.log('html结束')
             clearInterval(timter)
             resolve(start)
@@ -504,18 +513,18 @@ export default {
 
         let start = 0
         let chars = ''
-        let char = htmlStepConfig.substring(start, start + 10)
+        let char = htmlStepConfig.substring(start, start + 20)
         let timter = setInterval(() => {
           // let char = htmlStepConfig.substring(start, start + 5)
           // console.log("char:",char)
           chars += char
           // console.log("chars:",chars)
-          start = start + 10
-          char = htmlStepConfig.substring(start - 1, start + 10)
+          start = start + 20
+          char = htmlStepConfig.substring(start - 1, start + 20)
           htmlEditPreSource = frontHtml + chars + endHtml
           // console.log("htmlEditPreSource:",htmlEditPreSource)
 
-          if (start - 10 >= htmlStepConfig.length) {
+          if (start - 20 >= htmlStepConfig.length) {
             console.log('html结束')
             clearInterval(timter)
             resolve(start)
